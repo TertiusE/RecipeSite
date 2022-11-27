@@ -1,20 +1,21 @@
 extends layout 
 
 block content 
-    h1=recipe.name
-    p Description: #{recipe.description}
-    p Difficulty: #{recipe.difficulty}
-    
-    h2 Ingredients
-    ul 
-        each ingredient in recipe.ingredients
-            li #{ingredient}
+    div(style="margin:1.5rem 3rem 3rem 3rem;")
+        h2=recipe.name
+        p Description: #{recipe.description}
+        p Difficulty: #{recipe.difficulty}
+        
+        h4 Ingredients
+        ul 
+            each ingredient in recipe.ingredients
+                li #{ingredient}
 
-    h2 Steps
-    ol
-        each step in recipe.steps
-            li #{step}
-    hr
-    a(href="/recipes/edit/"+recipe._id) Edit Book
-    br
-    a.delete-book(href="#", data-id=recipe._id) Delete Book
+        h4 Steps
+        ol
+            each step in recipe.steps
+                li #{step}
+        hr
+        .flexRow
+            a.btn.btn-warning(href="/recipes/edit/"+recipe._id, style="margin-right:1rem;") Edit Book 
+            a.delete-book.btn.btn-danger(href="#", data-id=recipe._id) Delete Book

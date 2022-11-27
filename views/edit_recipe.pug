@@ -16,10 +16,11 @@ block content
 
         #form-group
             label(for="ingredients") Ingredients: 
-            input.form-control(name="ingredients" type="text" value=recipe.ingredients.toString())
+            input.form-control(name="ingredients" type="text" value=recipe.ingredients.join('/'))
 
         #form-group
             label(for="steps") Steps: 
-            input.form-control(name="steps" type="text" value=recipe.steps.toString())
+            input.form-control(name="steps" type="text" value=recipe.steps.join('/'))
+        br
 
-        input(type="submit", value="Submit")
+        input.btn.btn-primary(type="submit", value="Submit")

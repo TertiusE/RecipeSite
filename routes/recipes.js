@@ -26,8 +26,8 @@ router
             recipe.name = req.body.name
             recipe.description = req.body.description
             recipe.difficulty = parseInt(req.body.difficulty)
-            recipe.ingredients = req.body.ingredients.split(',')
-            recipe.steps = req.body.steps.split(',')
+            recipe.ingredients = req.body.ingredients.split('/')
+            recipe.steps = req.body.steps.split('/')
             //Save recipe to the database
             recipe.save((err) => {
                 if (err) {
@@ -76,8 +76,8 @@ router
         recipe.name = req.body.name
         recipe.description = req.body.description
         recipe.difficulty = parseInt(req.body.difficulty)
-        recipe.ingredients = req.body.ingredients.split(',')
-        recipe.steps = req.body.steps.split(',')
+        recipe.ingredients = req.body.ingredients.split('/')
+        recipe.steps = req.body.steps.split('/')
 
         let query = { _id: req.params.id }
 

@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+}
+
+.flexRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.flexRow > a {
+    margin: 1rem;
+}
+
+.mainTitle {
+    margin: 1.125rem 1rem;
+}
+
+.recipeLink {
+    font-size: 1.5rem;
+}
+
+.recipeLink:hover {
+    text-decoration: none;
+}
+
+.custom_row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.custom_3 {
+    flex-grow: 1;
+    width: 33%;
+    max-width: 33%;
+}
+
+.recipeCard {
+    background-color: lightgray;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    box-shadow: 4px 5px 10px 0px rgba(0,0,0,0.71);
+    border:2px solid black;
+}
+
+.desc {
+    border:2px solid black;
+    padding: 0.25rem;
+    margin-top: 0.75rem;
+}
+
+.descText {
+    font-weight: bold;
+}
+
+.diff {
+    margin: 0.125rem;
+    font-weight: bold;
+}
+
+.progress_width {
+    width: 100%;
+}

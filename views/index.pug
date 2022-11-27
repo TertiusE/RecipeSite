@@ -1,21 +1,24 @@
 extends layout 
 
 block content 
-    h1 Recipe Book 
-    each recipe in recipes
-        label Name: 
-        a(href="/recipes/"+recipe._id) #{recipe.name}
-        p Description: #{recipe.description}
-        p Difficulty: #{recipe.difficulty}
-        
-        h2 Ingredients
-        ul 
-            each ingredient in recipe.ingredients
-                li #{ingredient}
+    h1.mainTitle Recipe Book 
+    .custom_row
+        each recipe in recipes
+            .custom_3
+                .recipeCard
+                    a.recipeLink(href="/recipes/"+recipe._id) #{recipe.name}
+                    .desc 
+                        p.descText Description
+                        p #{recipe.description}
+                    p.diff Difficulty
+                    progress.progress_width(value=recipe.difficulty min=1 max=10)
 
-        h2 Steps
-        ol
-            each step in recipe.steps
-                li #{step}
-        br
-        br
+                    h4 Ingredients
+                    ul 
+                        each ingredient in recipe.ingredients
+                            li #{ingredient}
+
+                    h4 Steps
+                    ol
+                        each step in recipe.steps
+                            li #{step}
