@@ -7,7 +7,15 @@ block content
         a(href="/recipes/"+recipe._id) #{recipe.name}
         p Description: #{recipe.description}
         p Difficulty: #{recipe.difficulty}
-        p Ingredients: #{recipe.ingredients}
-        p Steps: #{recipe.steps}
+        
+        h2 Ingredients
+        ul 
+            each ingredient in recipe.ingredients
+                li #{ingredient}
+
+        h2 Steps
+        ol
+            each step in recipe.steps
+                li #{step}
         br
         br

@@ -4,7 +4,15 @@ block content
     h1=recipe.name
     p Description: #{recipe.description}
     p Difficulty: #{recipe.difficulty}
-    p Ingredients: #{recipe.ingredients}
-    p Steps: #{recipe.steps}
+    h2 Ingredients
+    ul 
+        each ingredient in recipe.ingredients
+            li #{ingredient}
+    h2 Steps
+    ol
+        each step in recipe.steps
+            li #{step}
+    hr
+    a(href="/recipes/edit/"+recipe._id) Edit Book
     br
-    br
+    a.delete-book(href="#", data-id=recipe._id) Delete Book

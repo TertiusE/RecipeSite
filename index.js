@@ -28,19 +28,20 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.use('/recipes', recipeRouter)
 
+let Recipe = require("./models/recipes")
+
 //Attaching the routes to app
 app.use('/', (req, res)=> {
-    // Recipe.find({}, (err, recipes)=>{
-    //     if (err){
-    //         console.log("error")
-    //     }else {
-    //         res.render("index", {
-    //             title: "Recipe Book",
-    //             recipes: recipes
-    //         })
-    //     }
-    // })
-    res.send("Bookstore")
+    Recipe.find({}, (err, recipes)=>{
+        if (err){
+            console.log("error")
+        }else {
+            res.render("index", {
+                title: "Recipe Book",
+                recipes: recipes
+            })
+        }
+    })
 })
 
 // catch 404 and forward to error handler

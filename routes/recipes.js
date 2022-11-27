@@ -25,9 +25,9 @@ router
             let recipe = new Recipe()
             recipe.name = req.body.name
             recipe.description = req.body.description
-            recipe.difficulty = req.body.difficulty
-            recipe.ingredients = req.body.ingredients
-            recipe.steps = req.body.steps
+            recipe.difficulty = parseInt(req.body.difficulty)
+            recipe.ingredients = req.body.ingredients.split(',')
+            recipe.steps = req.body.steps.split(',')
             //Save recipe to the database
             recipe.save((err) => {
                 if (err) {
@@ -47,7 +47,7 @@ router
     .route("/:id")
     .get((req, res) => {
         Recipe.findById(req.params.id, (err, recipe) => {
-            res.render("recipe", { recipe })
+            res.render("recipe", { recipe: recipe })
         })
     })
     .delete((req, res) => {
@@ -68,7 +68,6 @@ router
         Recipe.findById(req.params.id, (err, recipe) => {
             res.render("edit_recipe", {
                 recipe: recipe,
-                genres: genres
             })
         })
     })
@@ -76,9 +75,9 @@ router
         let recipe = {}
         recipe.name = req.body.name
         recipe.description = req.body.description
-        recipe.difficulty = req.body.difficulty
-        recipe.ingredients = req.body.ingredients
-        recipe.steps = req.body.steps
+        recipe.difficulty = parseInt(req.body.difficulty)
+        recipe.ingredients = req.body.ingredients.split(',')
+        recipe.steps = req.body.steps.split(',')
 
         let query = { _id: req.params.id }
 
