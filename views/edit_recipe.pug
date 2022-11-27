@@ -1,0 +1,25 @@
+extends layout
+block content 
+    h1=recipe.name
+    form(method="POST")
+        #form-group
+            label(for="name") Name: 
+            input.form-control(name="name" type="text" value=recipe.name) 
+
+        #form-group
+            label(for="description") Description: 
+            input.form-control(name="description" type="text" value=recipe.description)
+
+        #form-group
+            label(for="difficulty") Difficulty: 
+            input.form-control(name="difficulty" type="number" min="1" max="10" value=recipe.difficulty)
+
+        #form-group
+            label(for="ingredients") Ingredients: 
+            input.form-control(name="ingredients" type="text" value=recipe.ingredients)
+
+        #form-group
+            label(for="steps") Steps: 
+            input.form-control(name="steps" type="text" value=recipe.steps)
+
+        input(type="submit", value="Submit")
