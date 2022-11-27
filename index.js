@@ -1,9 +1,10 @@
 const express = require('express')
-const app = express()
 const path = require("path")
 const recipeRouter = require("./routes/recipes")
 const config = require("./config/database")
 const mongoose = require("mongoose")
+
+const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -23,8 +24,8 @@ db.on("error", (err)=>{
 })
 
 
-app.set('', path.join(__dirname, "views"))
-app.set('view engine', 'pug')
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
 app.use('/recipes', recipeRouter)
 
 //Attaching the routes to app
